@@ -1,4 +1,4 @@
-package com.hendisantika;
+package com.hendisantika.entity;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;

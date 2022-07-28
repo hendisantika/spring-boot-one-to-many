@@ -1,4 +1,4 @@
-package com.hendisantika;
+package com.hendisantika.entity;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
