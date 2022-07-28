@@ -1,8 +1,12 @@
 package com.hendisantika.controller;
 
+import com.hendisantika.entity.Post;
 import com.hendisantika.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,4 +26,8 @@ public class PostController {
 
     private final PostRepository postRepository;
 
+    @GetMapping("/posts")
+    public Page<Post> getAllPosts(Pageable pageable) {
+        return postRepository.findAll(pageable);
+    }
 }
