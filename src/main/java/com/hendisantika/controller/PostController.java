@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +52,14 @@ public class PostController {
             post.setDescription(postRequest.getDescription());
             post.setContent(postRequest.getContent());
             return postRepository.save(post);
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+    }
+
+    @DeleteMapping("/posts/{postId}")
+    public ResponseEntity<?> deletePost(@PathVariable Long postId) {
+        return postRepository.findById(postId).map(post -> {
+            postRepository.delete(post);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 }
