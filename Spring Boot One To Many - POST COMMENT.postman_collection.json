@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "23773ea3-974e-4679-b4be-45d3e6d44597",
+    "name": "Spring Boot One To Many - POST COMMENT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "276892"
+  },
+  "item": [
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\" : \"Post 4\",\n    \"description\": \"Post 4 description\",\n    \"content\": \"Post 4 Content\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/posts",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get paginated Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/posts?page=0&size=2&sort=createdAt,desc",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "2"
+            },
+            {
+              "key": "sort",
+              "value": "createdAt,desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Comment",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\" : \"Great Post\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/posts/3/comments",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "3",
+            "comments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Paginated comments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/posts/3/comments?page=0&size=3&sort=createdAt,desc",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "3",
+            "comments"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "3"
+            },
+            {
+              "key": "sort",
+              "value": "createdAt,desc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Post",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\" : \"Post 3 Updated\",\n    \"description\": \"Post 3 description Updated\",\n    \"content\": \"Post 3 Content Updated\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/posts/1",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Post",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/posts/5",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Comment",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"text\" : \"Great Post Updated\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/posts/3/comments/2",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "3",
+            "comments",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Comment",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/posts/3/comments/3",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "3",
+            "comments",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
